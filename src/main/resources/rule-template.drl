@@ -1,0 +1,23 @@
+template header
+
+conditionName
+conditionRule
+conditionAction
+
+package com.fsd.lambda;
+global com.fsd.lambda.model.Alert alert;
+global com.fsd.lambda.model.Condition condition;
+
+template "alert"
+
+rule "@{conditionName}"
+
+when
+com.fsd.lambda.entity.AssetData(@{conditionRule})
+
+then
+@{conditionAction}
+
+end;
+
+end template
